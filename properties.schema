@@ -1,0 +1,92 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "required":false,
+  "properties":{
+    "pluginLocations": {
+      "type":"object",
+      "required":true,
+      "properties":{
+        "config": {
+          "type":"object"
+        },
+        "course": {
+          "type":"object",
+          "properties":{
+            "_layout": {
+              "type":"object",
+              "required":false,
+              "legend": "Layout",
+              "properties":{
+                "_isEnabled": {
+                  "type":"boolean",
+                  "required":true,
+                  "default": false,
+                  "title": "Enabled",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Turns Layout on and off. Acceptable values are true and false."
+                },
+                "_disableOnMobile": {
+                  "type":"boolean",
+                  "required":true,
+                  "default": true,
+                  "title": "Disable on Mobile",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Disables the layout functionality on small devices."
+                },
+                "_fullHeightEnabled": {
+                  "type":"boolean",
+                  "required":true,
+                  "default": true,
+                  "title": "Full Height Enabled",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Sets the layout to the full height on the user's device."
+                },
+                "_customHeight": {
+                  "type":"object",
+                  "required": false,
+                  "title": "Custom Height",
+                  "properties":{
+                    "_isEnabled": {
+                      "type":"boolean",
+                      "required": false,
+                      "default": "false",
+                      "title": "Enabled",
+                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "validators": []
+                    },
+                    "_minHeight": {
+                      "type": "number",
+                      "required": false,
+                      "inputType": "Number",
+                      "title": "Minimum Height",
+                      "default": 640,
+                      "validators": ["number"],
+                      "help": "Set the minimum height for the Article."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "contentobject": {
+          "type":"object"
+        },
+        "article": {
+          "type":"object"
+        },
+        "block": {
+          "type":"object"
+        },
+        "component": {
+          "type":"object"
+        }
+      }
+    }
+  }
+}

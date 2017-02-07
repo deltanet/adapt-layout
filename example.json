@@ -1,0 +1,11 @@
+// Add to course JSON
+
+"_layout": {
+  "_isEnabled": true,
+  "_disableOnMobile": true,
+  "_fullHeightEnabled": true,
+  "_customHeight": {
+    "_isEnabled": false,
+    "_minHeight": 640
+  }
+}
