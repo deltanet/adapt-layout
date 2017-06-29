@@ -14,7 +14,7 @@
         "course": {
           "type":"object",
           "properties":{
-            "_layout": {
+            "_layoutExtension": {
               "type":"object",
               "required":false,
               "legend": "Layout",
@@ -84,7 +84,34 @@
           "type":"object"
         },
         "component": {
-          "type":"object"
+          "type":"object",
+          "properties":{
+            "_layoutExtension": {
+              "type":"object",
+              "required": false,
+              "legend": "Layout",
+              "properties":{
+                "_isEnabled": {
+                  "type":"boolean",
+                  "required": false,
+                  "default": false,
+                  "title": "Is enabled",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Enables Layout on the Component"
+                },
+                "_hideOn": {
+                  "type":"string",
+                  "required": false,
+                  "default": "small",
+                  "title": "Hide On",
+                  "inputType": {"type": "Select", "options": ["small", "medium", "large", "small medium", "small large", "medium large"]},
+                  "validators": [],
+                  "help": "Set which device sizes to hide this component on"
+                }
+              }
+            }
+          }
         }
       }
     }

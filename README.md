@@ -9,33 +9,46 @@ This extension offers different options for the screen layout.
 
 This extension must be manually installed.
 
-If **Layout** has been uninstalled from the Adapt authoring tool, it may be reinstalled using the [Plug-in Manager](https://github.com/adaptlearning/adapt_authoring/wiki/Plugin-Manager). 
+If **Layout** has been uninstalled from the Adapt authoring tool, it may be reinstalled using the [Plug-in Manager](https://github.com/adaptlearning/adapt_authoring/wiki/Plugin-Manager).
 
 ## Settings Overview
 
-**Layout** is configured at course (*course.json*) level.
+**Layout** is configured at course (*course.json*) and component (*components.json*) level.
 
 The attributes listed below are properly formatted as JSON in [*example.json*](https://github.com/deltanet/adapt-layout/blob/master/example.json).  
 
 ### Attributes
 
+**Course**  
+
 The Layout attribute group contains values for **_isEnabled**, **_disableOnMobile**, **_fullHeightEnabled**, and **_customHeight**.
 
 >**_isEnabled** (boolean):  Turns on and off the **Layout** extension. Can be set to disable **Layout** when not required.  
 
->**_disableOnMobile** (boolean):  If set to `true`, the extension will be disabled on mobile devices. 
+>**_disableOnMobile** (boolean):  If set to `true`, the extension will be disabled on mobile devices.
 
 >**_fullHeightEnabled** (boolean):  If set to `true`, all Article's will be set to the height of the device.  
 
 >**_customHeight** (object):  This `_customHeight` attributes group stores the properties for adding a custom height for the Articles. It contains values for **_isEnabled**, and **_minHeight**.  
 
->>**_isEnabled** (boolean): If set to `true`, the specified minimum height will be added to all Articles. 
+>>**_isEnabled** (boolean): If set to `true`, the specified minimum height will be added to all Articles.
 
->>**_minHeight** (number): Defines the CSS min-height for the Articles height.
+>>**_minHeight** (number): Defines the CSS min-height for the Articles height.  
+
+<div float align=right><a href="#top">Back to Top</a></div>  
+
+**Component**  
+
+The Layout attribute group at component level contains values for **_isEnabled**, and **_hideoOn**.
+
+>**_isEnabled** (boolean):  Turns on and off the **Layout** extension. Can be set to disable **Layout** when not required.  
+
+>**_hideoOn** (string):  Defines which devices the component is hidden on.    
+
 
 ## Limitations
- 
-No known limitations. 
+
+No known limitations.
 
 ----------------------------
 **Version number:**  2.0.0    
