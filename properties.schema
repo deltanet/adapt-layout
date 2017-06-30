@@ -81,7 +81,58 @@
           "type":"object"
         },
         "block": {
-          "type":"object"
+          "type":"object",
+          "properties":{
+            "_layoutExtension": {
+              "type":"object",
+              "required": false,
+              "legend": "Layout",
+              "properties":{
+                "_isEnabled": {
+                  "type":"boolean",
+                  "required": false,
+                  "default": false,
+                  "title": "Is enabled",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Enables Layout on the Block"
+                },
+                "_componentWidths": {
+                  "type":"object",
+                  "required": false,
+                  "title": "Component Widths",
+                  "properties":{
+                    "_isEnabled": {
+                      "type":"boolean",
+                      "required": false,
+                      "default": false,
+                      "title": "Is enabled",
+                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "validators": []
+                    },
+                    "_left": {
+                      "type": "number",
+                      "required": false,
+                      "default": "50",
+                      "title": "Left",
+                      "inputType":"Number",
+                      "validators": ["number"],
+                      "help": "Sets the width of the left component when viewed on a large device"
+                    },
+                    "_right": {
+                      "type": "number",
+                      "required": false,
+                      "default": "50",
+                      "title": "Right",
+                      "inputType":"Number",
+                      "validators": ["number"],
+                      "help": "Sets the width of the right component when viewed on a large device"
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "component": {
           "type":"object",

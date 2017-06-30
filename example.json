@@ -10,6 +10,17 @@
   }
 }
 
+// Add to blocks JSON
+
+"_layoutExtension": {
+  "_isEnabled": true,
+  "_componentWidths": {
+    "_isEnabled": true,
+    "_left": 30,
+    "_right": 70
+  }
+},
+
 // Add to components JSON
 
 "_layoutExtension": {

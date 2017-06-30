@@ -1,7 +1,8 @@
 define([
     'coreJS/adapt',
+    './layout-block-view',
     './layout-component-view'
-], function(Adapt, LayoutComponentView) {
+], function(Adapt, LayoutBlockView, LayoutComponentView) {
 
     var Layout = _.extend({
 
@@ -18,6 +19,7 @@ define([
         setupLayout: function() {
             this.listenTo(Adapt, "pageView:ready", this.deviceResize);
             this.listenTo(Adapt, 'device:changed device:resize', this.deviceResize);
+            this.listenTo(Adapt, "blockView:postRender", this.onBlockReady);
             this.listenTo(Adapt, "componentView:postRender", this.onComponentReady);
             // Collect config settings
             this.disableOnMobile = Adapt.course.get("_layoutExtension")._disableOnMobile;
@@ -61,6 +63,12 @@ define([
                 "min-height": "10px"
             });
             $('.article').removeClass("layout-cover");
+        },
+
+        onBlockReady: function(view) {
+          if (view.model && view.model.get("_layoutExtension") && view.model.get("_layoutExtension")._isEnabled) {
+              new LayoutBlockView({model:view.model});
+          }
         },
 
         onComponentReady: function(view) {
