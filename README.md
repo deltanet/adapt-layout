@@ -13,7 +13,7 @@ If **Layout** has been uninstalled from the Adapt authoring tool, it may be rein
 
 ## Settings Overview
 
-**Layout** is configured at course (*course.json*) and component (*components.json*) level.
+**Layout** is configured at course (*course.json*),  block (*blocks.json*) and component (*components.json*) level.
 
 The attributes listed below are properly formatted as JSON in [*example.json*](https://github.com/deltanet/adapt-layout/blob/master/example.json).  
 
@@ -35,7 +35,17 @@ The Layout attribute group contains values for **_isEnabled**, **_disableOnMobil
 
 >>**_minHeight** (number): Defines the CSS min-height for the Articles height.  
 
-<div float align=right><a href="#top">Back to Top</a></div>  
+**Block**  
+
+The Layout attribute group at block level contains values for **_isEnabled**, and **_componentWidths**.
+
+>**_isEnabled** (boolean):  Turns on and off the **Layout** extension. Can be set to disable **Layout** when not required.  
+
+>**_componentWidths** (object):  This `_componentWidths` attributes group stores the properties for changing the width of the components within the block. It contains values for **_isEnabled**, **_left** and **_right**. 
+
+>>**_left** (number): Sets the width of the left component when viewed on a large device. 
+
+>>**_right** (number): Sets the width of the right component when viewed on a large device. 
 
 **Component**  
 
@@ -43,7 +53,7 @@ The Layout attribute group at component level contains values for **_isEnabled**
 
 >**_isEnabled** (boolean):  Turns on and off the **Layout** extension. Can be set to disable **Layout** when not required.  
 
->**_hideoOn** (string):  Defines which devices the component is hidden on.    
+>**_hideoOn** (string):  Defines which devices the component is hidden on.   
 
 
 ## Limitations
