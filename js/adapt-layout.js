@@ -1,6 +1,8 @@
 define([
-    'coreJS/adapt'
-], function(Adapt) {
+    'coreJS/adapt',
+    './layout-block-view',
+    './layout-component-view'
+], function(Adapt, LayoutBlockView, LayoutComponentView) {
 
     var Layout = _.extend({
 
@@ -9,7 +11,7 @@ define([
         },
 
         onDataReady: function() {
-            if (Adapt.course.get("_layout") && Adapt.course.get("_layout")._isEnabled) {
+            if (Adapt.course.get("_layoutExtension") && Adapt.course.get("_layoutExtension")._isEnabled) {
                 this.setupLayout();
             }
         },
@@ -17,11 +19,13 @@ define([
         setupLayout: function() {
             this.listenTo(Adapt, "pageView:ready", this.deviceResize);
             this.listenTo(Adapt, 'device:changed device:resize', this.deviceResize);
+            this.listenTo(Adapt, "blockView:postRender", this.onBlockReady);
+            this.listenTo(Adapt, "componentView:postRender", this.onComponentReady);
             // Collect config settings
-            this.disableOnMobile = Adapt.course.get("_layout")._disableOnMobile;
-            this.fullHeightEnabled = Adapt.course.get("_layout")._fullHeightEnabled;
-            this.customHeightEnabled = Adapt.course.get("_layout")._customHeight._isEnabled;
-            this.customMinHeight = Adapt.course.get("_layout")._customHeight._minHeight;
+            this.disableOnMobile = Adapt.course.get("_layoutExtension")._disableOnMobile;
+            this.fullHeightEnabled = Adapt.course.get("_layoutExtension")._fullHeightEnabled;
+            this.customHeightEnabled = Adapt.course.get("_layoutExtension")._customHeight._isEnabled;
+            this.customMinHeight = Adapt.course.get("_layoutExtension")._customHeight._minHeight;
         },
 
         deviceResize: function() {
@@ -59,7 +63,20 @@ define([
                 "min-height": "10px"
             });
             $('.article').removeClass("layout-cover");
+        },
+
+        onBlockReady: function(view) {
+          if (view.model && view.model.get("_layoutExtension") && view.model.get("_layoutExtension")._isEnabled) {
+              new LayoutBlockView({model:view.model});
+          }
+        },
+
+        onComponentReady: function(view) {
+          if (view.model && view.model.get("_layoutExtension") && view.model.get("_layoutExtension")._isEnabled) {
+              new LayoutComponentView({model:view.model});
+          }
         }
+
 
     }, Backbone.Events);
 

@@ -1,6 +1,6 @@
 // Add to course JSON
 
-"_layout": {
+"_layoutExtension": {
   "_isEnabled": true,
   "_disableOnMobile": true,
   "_fullHeightEnabled": true,
@@ -9,3 +9,21 @@
     "_minHeight": 640
   }
 }
+
+// Add to blocks JSON
+
+"_layoutExtension": {
+  "_isEnabled": true,
+  "_componentWidths": {
+    "_isEnabled": true,
+    "_left": 30,
+    "_right": 70
+  }
+},
+
+// Add to components JSON
+
+"_layoutExtension": {
+  "_isEnabled": true,
+  "_hideOn": "small medium large"
+},
