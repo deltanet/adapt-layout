@@ -41,11 +41,11 @@ The Layout attribute group at block level contains values for **_isEnabled**, an
 
 >**_isEnabled** (boolean):  Turns on and off the **Layout** extension. Can be set to disable **Layout** when not required.  
 
->**_componentWidths** (object):  This `_componentWidths` attributes group stores the properties for changing the width of the components within the block. It contains values for **_isEnabled**, **_left** and **_right**. 
+>**_componentWidths** (object):  This `_componentWidths` attributes group stores the properties for changing the width of the components within the block. It contains values for **_isEnabled**, **_left** and **_right**.
 
->>**_left** (number): Sets the width of the left component when viewed on a large device. 
+>>**_left** (number): Sets the width of the left component when viewed on a large device.
 
->>**_right** (number): Sets the width of the right component when viewed on a large device. 
+>>**_right** (number): Sets the width of the right component when viewed on a large device.
 
 **Component**  
 
@@ -61,7 +61,7 @@ The Layout attribute group at component level contains values for **_isEnabled**
 No known limitations.
 
 ----------------------------
-**Version number:**  2.0.0    
+**Version number:**  2.1.0    
 **Framework versions supported:**  2.0.4    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-layout/graphs/contributors)     
 **Accessibility support:** Yes    

@@ -23,26 +23,26 @@
                   "type":"boolean",
                   "required":true,
                   "default": false,
-                  "title": "Enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "title": "Is Enabled",
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Turns Layout on and off. Acceptable values are true and false."
+                  "help": "Controls whether the Layout extension is enabled or disabled."
                 },
                 "_disableOnMobile": {
                   "type":"boolean",
                   "required":true,
                   "default": true,
                   "title": "Disable on Mobile",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Disables the layout functionality on small devices."
+                  "help": "Controls whether the Layout extension is disabled on small devices."
                 },
                 "_fullHeightEnabled": {
                   "type":"boolean",
                   "required":true,
                   "default": true,
                   "title": "Full Height Enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "inputType": "Checkbox",
                   "validators": [],
                   "help": "Sets the layout to the full height on the user's device."
                 },
@@ -55,9 +55,10 @@
                       "type":"boolean",
                       "required": false,
                       "default": "false",
-                      "title": "Enabled",
-                      "inputType": { "type": "Boolean", "options": [false, true]},
-                      "validators": []
+                      "title": "Is Enabled",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Controls whether a custom height is enabled or disabled."
                     },
                     "_minHeight": {
                       "type": "number",
@@ -92,10 +93,10 @@
                   "type":"boolean",
                   "required": false,
                   "default": false,
-                  "title": "Is enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "title": "Is Enabled",
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Enables Layout on the Block"
+                  "help": "Controls whether the Layout extension is enabled or disabled."
                 },
                 "_componentWidths": {
                   "type":"object",
@@ -106,9 +107,10 @@
                       "type":"boolean",
                       "required": false,
                       "default": false,
-                      "title": "Is enabled",
-                      "inputType": { "type": "Boolean", "options": [false, true]},
-                      "validators": []
+                      "title": "Is Enabled",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Controls whether the Component Widths functionality is enabled or disabled."
                     },
                     "_left": {
                       "type": "number",
@@ -117,7 +119,7 @@
                       "title": "Left",
                       "inputType":"Number",
                       "validators": ["number"],
-                      "help": "Sets the width of the left component when viewed on a large device"
+                      "help": "Sets the width of the left component when viewed on a large device."
                     },
                     "_right": {
                       "type": "number",
@@ -126,7 +128,7 @@
                       "title": "Right",
                       "inputType":"Number",
                       "validators": ["number"],
-                      "help": "Sets the width of the right component when viewed on a large device"
+                      "help": "Sets the width of the right component when viewed on a large device."
                     }
                   }
                 }
@@ -146,10 +148,10 @@
                   "type":"boolean",
                   "required": false,
                   "default": false,
-                  "title": "Is enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "title": "Is Enabled",
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Enables Layout on the Component"
+                  "help": "Controls whether the Layout extension is enabled or disabled."
                 },
                 "_hideOn": {
                   "type":"string",
@@ -158,7 +160,7 @@
                   "title": "Hide On",
                   "inputType": {"type": "Select", "options": ["small", "medium", "large", "small medium", "small large", "medium large"]},
                   "validators": [],
-                  "help": "Set which device sizes to hide this component on"
+                  "help": "Set which device sizes to hide this component on."
                 }
               }
             }
