@@ -1,8 +1,9 @@
 define([
     'coreJS/adapt',
-    './layout-block-view',
-    './layout-component-view'
-], function(Adapt, LayoutBlockView, LayoutComponentView) {
+    './layout-articleView',
+    './layout-blockView',
+    './layout-componentView'
+], function(Adapt, LayoutArticleView, LayoutBlockView, LayoutComponentView) {
 
     var Layout = _.extend({
 
@@ -17,56 +18,19 @@ define([
         },
 
         setupLayout: function() {
-            this.listenTo(Adapt, "pageView:ready", this.deviceResize);
-            this.listenTo(Adapt, 'device:changed device:resize', this.deviceResize);
+            this.listenTo(Adapt, "articleView:postRender", this.onArticleReady);
             this.listenTo(Adapt, "blockView:postRender", this.onBlockReady);
             this.listenTo(Adapt, "componentView:postRender", this.onComponentReady);
-            // Collect config settings
-            this.disableOnMobile = Adapt.course.get("_layoutExtension")._disableOnMobile;
-            this.fullHeightEnabled = Adapt.course.get("_layoutExtension")._fullHeightEnabled;
-            this.customHeightEnabled = Adapt.course.get("_layoutExtension")._customHeight._isEnabled;
-            this.customMinHeight = Adapt.course.get("_layoutExtension")._customHeight._minHeight;
         },
 
-        deviceResize: function() {
-            if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
-                this.resetLayout();
-            } else {
-                this.updateLayout();
-            }
-        },
-
-        updateLayout: function() {
-            if (this.fullHeightEnabled) {
-                this.setFullHeight();
-            } else if (this.customHeightEnabled) {
-                this.setCustomHeight();
-            }
-        },
-
-        setFullHeight: function() {
-            var windowHeight = $(window).height();
-            $('.article').css({
-                "min-height": windowHeight
-            });
-            $('.article').addClass("layout-cover");
-        },
-
-        setCustomHeight: function() {
-            $('.article').css({
-                "min-height": this.customMinHeight
-            });
-        },
-
-        resetLayout: function() {
-            $('.article').css({
-                "min-height": "10px"
-            });
-            $('.article').removeClass("layout-cover");
+        onArticleReady: function(view) {
+          if (Adapt.course.get("_layoutExtension")._fullHeightEnabled || Adapt.course.get("_layoutExtension")._customHeight._isEnabled) {
+              new LayoutArticleView({model:view.model});
+          }
         },
 
         onBlockReady: function(view) {
-          if (view.model && view.model.get("_layoutExtension") && view.model.get("_layoutExtension")._isEnabled) {
+          if (Adapt.course.get("_layoutExtension")._fullHeightEnabled || Adapt.course.get("_layoutExtension")._customHeight._isEnabled) {
               new LayoutBlockView({model:view.model});
           }
         },
@@ -77,11 +41,10 @@ define([
           }
         }
 
-
     }, Backbone.Events);
 
     Layout.initialize();
 
     return Layout;
 
-})
+});

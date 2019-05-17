@@ -13,9 +13,10 @@
 // Add to blocks JSON
 
 "_layoutExtension": {
-  "_isEnabled": true,
+  "_isEnabled": false,
+  "_disableFullHeight": false,
   "_componentWidths": {
-    "_isEnabled": true,
+    "_isEnabled": false,
     "_left": 30,
     "_right": 70
   }
@@ -24,6 +25,6 @@
 // Add to components JSON
 
 "_layoutExtension": {
-  "_isEnabled": true,
+  "_isEnabled": false,
   "_hideOn": "small medium large"
 },
