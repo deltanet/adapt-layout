@@ -20,11 +20,21 @@ define([
           this.article = $('.' + this.model.get('_id'));
           this.articleInner = $('.' + this.model.get('_id') + " > .article-inner");
 
+          this.articlePadding = 0;
+
           this.deviceResize();
         },
 
         deviceResize: function() {
-          this.articlePadding = parseInt($(this.articleInner).css("padding-top").replace('px','')) + parseInt($(this.articleInner).css("padding-bottom").replace('px',''));
+          // Check padding-top
+          if ( $(this.articleInner).css("padding-top") ) {
+            this.articlePadding += parseInt($(this.articleInner).css("padding-top").replace('px',''));
+          }
+
+          // Check padding-bottom
+          if ( $(this.articleInner).css("padding-bottom") ) {
+            this.articlePadding += parseInt($(this.articleInner).css("padding-bottom").replace('px',''));
+          }
 
           if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
             this.resetLayout();
