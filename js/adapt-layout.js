@@ -1,5 +1,5 @@
 define([
-    'coreJS/adapt',
+    'core/js/adapt',
     './layout-articleView',
     './layout-blockView',
     './layout-componentView'
