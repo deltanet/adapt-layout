@@ -1,13 +1,15 @@
 define([
-    'coreJS/adapt'
+    'core/js/adapt'
 ], function(Adapt) {
 
     var LayoutBlockView = Backbone.View.extend({
 
         initialize: function() {
-          this.listenTo(Adapt, 'remove', this.remove);
-          this.listenTo(Adapt, 'device:changed device:resize', this.deviceResize);
-          this.listenTo(Adapt, "pageView:ready", this.render);
+          this.listenTo(Adapt, {
+              "remove": this.remove,
+              "device:changed device:resize": this.deviceResize,
+              "pageView:ready": this.render
+          });
         },
 
         render: function() {
