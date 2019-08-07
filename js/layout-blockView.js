@@ -7,9 +7,10 @@ define([
         initialize: function() {
           this.listenTo(Adapt, {
               "remove": this.remove,
-              "device:changed device:resize": this.deviceResize,
-              "pageView:ready": this.render
+              "device:changed device:resize": this.deviceResize
           });
+
+          this.render();
         },
 
         render: function() {
@@ -33,7 +34,7 @@ define([
         },
 
         deviceResize: function() {
-          if(this.model.get("_layoutExtension")._componentWidths._isEnabled) {
+          if (this.model.get("_layoutExtension")._componentWidths._isEnabled) {
             this.setWidths();
           }
 
