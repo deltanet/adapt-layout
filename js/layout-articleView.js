@@ -28,15 +28,7 @@ define([
         },
 
         deviceResize: function() {
-          // Check padding-top
-          if ( $(this.articleInner).css("padding-top") ) {
-            this.articlePadding += parseInt($(this.articleInner).css("padding-top").replace('px',''));
-          }
-
-          // Check padding-bottom
-          if ( $(this.articleInner).css("padding-bottom") ) {
-            this.articlePadding += parseInt($(this.articleInner).css("padding-bottom").replace('px',''));
-          }
+          this.articlePadding = $(this.articleInner).outerHeight() - $(this.articleInner).height();
 
           if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
             this.resetLayout();

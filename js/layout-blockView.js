@@ -41,9 +41,8 @@ define([
           // If the block config is overiding course config then do not continue
           if (this.model.get("_layoutExtension")._disableFullHeight) return;
 
-          this.parentPadding = parseInt($(this.parentInner).css("padding-top").replace('px','')) + parseInt($(this.parentInner).css("padding-bottom").replace('px',''));
-
-          this.blockPadding = parseInt($(this.blockInner).css("padding-top").replace('px','')) + parseInt($(this.blockInner).css("padding-bottom").replace('px',''));
+          this.parentPadding = $(this.parentInner).outerHeight() - $(this.parentInner).height();
+          this.blockPadding = $(this.blockInner).outerHeight() - $(this.blockInner).height();
 
           if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
             this.resetLayout();
