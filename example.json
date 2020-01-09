@@ -26,5 +26,10 @@
 
 "_layoutExtension": {
   "_isEnabled": false,
-  "_hideOn": "small medium large"
+  "_hideOn": "small medium large",
+  "_icon": {
+    "_isEnabled": false,
+    "_class": "icon-question",
+    "_image": ""
+  }
 },

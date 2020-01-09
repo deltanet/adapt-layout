@@ -3,3 +3,34 @@
     background-size: cover !important;
   }
 }
+
+.component {
+  &.layout-icon-enabled {
+    .component-body-inner {
+      padding-left: @component-padding;
+      .dir-rtl & {
+        padding-left: inherit;
+        padding-right: @component-padding;
+      }
+    }
+
+    .component-instruction-inner {
+      padding-left: @component-padding;
+      .dir-rtl & {
+        padding-left: inherit;
+        padding-right: @component-padding;
+      }
+    }
+
+    .layout-icon {
+      position: absolute;
+
+      .icon {
+        border-radius: 50%;
+        padding: @item-padding;
+        color: @primary-color-inverted;
+        background-color: @primary-color;
+      }
+    }
+  }
+}

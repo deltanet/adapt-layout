@@ -50,11 +50,19 @@ The Layout attribute group at block level contains values for **_isEnabled**, **
 
 **Component**  
 
-The Layout attribute group at component level contains values for **_isEnabled**, and **_hideoOn**.
+The Layout attribute group at component level contains values for **_isEnabled**, **_hideoOn**, and **_icon**.
 
 >**_isEnabled** (boolean):  Turns on and off the **Layout** extension. Can be set to disable **Layout** when not required.  
 
 >**_hideoOn** (string):  Defines which devices the component is hidden on.   
+
+>**_icon** (object):  This `_icon` attributes group stores the properties for icon graphic shown in the body text. It contains values for **_isEnabled**, **_class** and **_image**.
+
+>>**_isEnabled** (boolean):  Turns on and off the **_icon** functionality.  
+
+>>**_class** (string):  Class name for the icon used on medium and small devices. The class should be defined in the theme.  
+
+>>**_image** (string): File name (including path) of the image for the icon. Path should be relative to the *src* folder.  
 
 
 ## Limitations
@@ -62,7 +70,7 @@ The Layout attribute group at component level contains values for **_isEnabled**
 No known limitations.
 
 ----------------------------
-**Version number:**  2.3.2    
+**Version number:**  2.4.0    
 **Framework versions supported:**  2+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-layout/graphs/contributors)     
 **Accessibility support:** Yes    

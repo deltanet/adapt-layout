@@ -2,8 +2,9 @@ define([
     'core/js/adapt',
     './layout-articleView',
     './layout-blockView',
-    './layout-componentView'
-], function(Adapt, LayoutArticleView, LayoutBlockView, LayoutComponentView) {
+    './layout-componentView',
+    './layout-iconView'
+], function(Adapt, LayoutArticleView, LayoutBlockView, LayoutComponentView, LayoutIconView) {
 
     var Layout = _.extend({
 
@@ -38,6 +39,10 @@ define([
         onComponentReady: function(view) {
           if (view.model && view.model.get("_layoutExtension") && view.model.get("_layoutExtension")._isEnabled) {
               new LayoutComponentView({model:view.model});
+
+              if (view.model.get("_layoutExtension")._icon && view.model.get("_layoutExtension")._icon._isEnabled) {
+                new LayoutIconView({model:view.model});
+              }
           }
         }
 

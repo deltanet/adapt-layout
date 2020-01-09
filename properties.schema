@@ -170,6 +170,40 @@
                   "inputType": {"type": "Select", "options": ["small", "medium", "large", "small medium", "small large", "medium large"]},
                   "validators": [],
                   "help": "Set which device sizes to hide this component on."
+                },
+                "_icon": {
+                  "type":"object",
+                  "required": false,
+                  "legend": "Icon",
+                  "properties":{
+                    "_isEnabled": {
+                      "type":"boolean",
+                      "required": false,
+                      "default": false,
+                      "title": "Is Enabled",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Controls whether the icon is displayed in the component body text."
+                    },
+                    "_class": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Icon Class",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "Enter a CSS Class for the icon which should be defined in the theme."
+                    },
+                    "_image": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Icon Graphic",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Select a graphic for the icon."
+                    }
+                  }
                 }
               }
             }
