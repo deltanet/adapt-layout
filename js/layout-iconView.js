@@ -8,7 +8,8 @@ define([
 
     initialize: function() {
       this.listenTo(Adapt, {
-        "remove": this.remove
+        "remove": this.remove,
+        "pageView:ready": this.setLayout
       });
 
       this.render();
@@ -23,13 +24,9 @@ define([
       $(this.el).html(template(data)).prependTo('.' + this.id + " > .component-inner" + " > .component-header" + " > .component-header-inner" + " > .component-body");
 
       $('.' + this.id).addClass("layout-icon-enabled");
-
-      _.defer(_.bind(function() {
-        this.postRender();
-      }, this));
     },
 
-    postRender: function() {
+    setLayout: function() {
       var width = $(this.el).outerWidth();
 
       if (Adapt.config.get('_defaultDirection') === 'ltr') {

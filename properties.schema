@@ -165,9 +165,9 @@
                 "_hideOn": {
                   "type": "string",
                   "required": false,
-                  "default": "small",
+                  "default": "",
                   "title": "Hide On",
-                  "inputType": {"type": "Select", "options": ["small", "medium", "large", "small medium", "small large", "medium large"]},
+                  "inputType": {"type": "Select", "options": ["", "small", "medium", "large", "small medium", "small large", "medium large"]},
                   "validators": [],
                   "help": "Set which device sizes to hide this component on."
                 },
