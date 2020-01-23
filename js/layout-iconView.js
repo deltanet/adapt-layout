@@ -28,6 +28,7 @@ define([
 
     setLayout: function() {
       var width = $(this.el).outerWidth();
+      var height = $(this.el).outerHeight();
 
       if (Adapt.config.get('_defaultDirection') === 'ltr') {
         var direction = "left";
@@ -37,6 +38,8 @@ define([
 
       $('.' + this.id).find('.component-body-inner').css('margin-'+direction, width);
       $('.' + this.id).find('.component-instruction-inner').css('margin-'+direction, width);
+
+      $('.' + this.id).find('.component-body-inner').css('min-height', height);
     }
 
   });
