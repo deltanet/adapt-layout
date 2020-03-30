@@ -24,6 +24,10 @@ define([
       $(this.el).html(template(data)).prependTo('.' + this.id + " > .component-inner" + " > .component-header" + " > .component-header-inner" + " > .component-body");
 
       $('.' + this.id).addClass("layout-icon-enabled");
+
+      $(this.el).imageready(function() {
+        this.setLayout();
+      }.bind(this));
     },
 
     setLayout: function() {
