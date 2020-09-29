@@ -4,12 +4,12 @@ define([
 
   var LayoutIconView = Backbone.View.extend({
 
-    className: "layout-icon",
+    className: 'layout__icon',
 
     initialize: function() {
       this.listenTo(Adapt, {
-        "remove": this.remove,
-        "pageView:ready": this.setLayout
+        'remove': this.remove,
+        'pageView:ready': this.setLayout
       });
 
       this.render();
@@ -17,13 +17,13 @@ define([
 
     render: function() {
       var data = this.model.toJSON();
-      var template = Handlebars.templates["layoutIcon"];
+      var template = Handlebars.templates['layoutIcon'];
 
-      this.id = this.model.get("_id");
+      this.id = this.model.get('_id');
 
-      $(this.el).html(template(data)).prependTo('.' + this.id + " > .component-inner" + " > .component-header" + " > .component-header-inner" + " > .component-body");
+      $(this.el).html(template(data)).prependTo('.' + this.id + ' > .component__inner' + ' > .component__header' + ' > .component__header-inner' + ' > .component__body');
 
-      $('.' + this.id).addClass("layout-icon-enabled");
+      $('.' + this.id).addClass('is-layout-icon');
 
       $(this.el).imageready(function() {
         this.setLayout();
@@ -35,15 +35,15 @@ define([
       var height = $(this.el).outerHeight();
 
       if (Adapt.config.get('_defaultDirection') === 'ltr') {
-        var direction = "left";
+        var direction = 'left';
       } else {
-        var direction = "right";
+        var direction = 'right';
       }
 
-      $('.' + this.id).find('.component-body-inner').css('margin-'+direction, width);
-      $('.' + this.id).find('.component-instruction-inner').css('margin-'+direction, width);
+      $('.' + this.id).find('.component__body-inner').css('margin-'+direction, width);
+      $('.' + this.id).find('.component__instruction-inner').css('margin-'+direction, width);
 
-      $('.' + this.id).find('.component-body-inner').css('min-height', height);
+      $('.' + this.id).find('.component__body-inner').css('min-height', height);
     }
 
   });
