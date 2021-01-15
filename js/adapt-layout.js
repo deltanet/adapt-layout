@@ -1,10 +1,11 @@
 define([
   'core/js/adapt',
+  './layout-menuView',
   './layout-articleView',
   './layout-blockView',
   './layout-componentView',
   './layout-iconView'
-], function(Adapt, LayoutArticleView, LayoutBlockView, LayoutComponentView, LayoutIconView) {
+], function(Adapt, LayoutMenuView, LayoutArticleView, LayoutBlockView, LayoutComponentView, LayoutIconView) {
 
   var Layout = _.extend({
 
@@ -20,10 +21,17 @@ define([
 
     setupLayout: function() {
       this.listenTo(Adapt, {
+        'menuView:postRender': this.onMenuReady,
         'articleView:postRender': this.onArticleReady,
         'blockView:postRender': this.onBlockReady,
         'componentView:postRender': this.onComponentReady
       });
+    },
+
+    onMenuReady: function(view) {
+      if (Adapt.course.get('_layoutExtension')._fullHeightEnabled || Adapt.course.get('_layoutExtension')._customHeight._isEnabled) {
+        new LayoutMenuView({model:view.model});
+      }
     },
 
     onArticleReady: function(view) {
