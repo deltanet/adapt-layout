@@ -14,13 +14,10 @@ define([
     },
 
     render: function() {
-      // Collect config settings
       this.disableOnMobile = Adapt.course.get('_layoutExtension')._disableOnMobile;
       this.fullHeightEnabled = Adapt.course.get('_layoutExtension')._fullHeightEnabled;
       this.customHeightEnabled = Adapt.course.get('_layoutExtension')._customHeight._isEnabled;
       this.customMinHeight = Adapt.course.get('_layoutExtension')._customHeight._minHeight;
-
-      this.parentInner = $('.' + this.model.get('_parentId') + ' > .article__inner');
 
       this.block = $('.' + this.model.get('_id'));
       this.blockInner = $('.' + this.model.get('_id') + ' > .block__inner');
@@ -40,9 +37,6 @@ define([
 
       // If the block config is overiding course config then do not continue
       if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._disableFullHeight) return;
-
-      this.parentPadding = $(this.parentInner).outerHeight() - $(this.parentInner).height();
-      this.blockPadding = $(this.blockInner).outerHeight() - $(this.blockInner).height();
 
       if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
         this.resetLayout();
@@ -72,7 +66,7 @@ define([
     setFullHeight: function() {
       var windowHeight = $(window).height() - $('.nav').height();
 
-      $(this.blockInner).css('min-height', windowHeight - this.blockPadding - this.parentPadding);
+      $(this.blockInner).css('min-height', windowHeight);
       $(this.block).addClass('is-layout-cover');
     },
 

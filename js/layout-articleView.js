@@ -13,7 +13,6 @@ define([
     },
 
     render: function() {
-      // Collect config settings
       this.disableOnMobile = Adapt.course.get('_layoutExtension')._disableOnMobile;
       this.fullHeightEnabled = Adapt.course.get('_layoutExtension')._fullHeightEnabled;
       this.customHeightEnabled = Adapt.course.get('_layoutExtension')._customHeight._isEnabled;
@@ -22,14 +21,10 @@ define([
       this.article = $('.' + this.model.get('_id'));
       this.articleInner = $('.' + this.model.get('_id') + ' > .article__inner');
 
-      this.articlePadding = 0;
-
       this.deviceResize();
     },
 
     deviceResize: function() {
-      this.articlePadding = $(this.articleInner).outerHeight() - $(this.articleInner).height();
-
       if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
         this.resetLayout();
       } else {
@@ -48,7 +43,7 @@ define([
     setFullHeight: function() {
       var windowHeight = $(window).height() - $('.nav').height();
 
-      $(this.articleInner).css('min-height', windowHeight - this.articlePadding);
+      $(this.articleInner).css('min-height', windowHeight);
       $(this.article).addClass('is-layout-cover');
     },
 
