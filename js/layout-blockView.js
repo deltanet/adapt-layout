@@ -34,12 +34,12 @@ define([
         },
 
         deviceResize: function() {
-          if (this.model.get("_layoutExtension")._componentWidths._isEnabled) {
+          if (this.model.get("_layoutExtension") && this.model.get("_layoutExtension")._componentWidths._isEnabled) {
             this.setWidths();
           }
 
           // If the block config is overiding course config then do not continue
-          if (this.model.get("_layoutExtension")._disableFullHeight) return;
+          if (this.model.get("_layoutExtension") && this.model.get("_layoutExtension")._disableFullHeight) return;
 
           this.parentPadding = $(this.parentInner).outerHeight() - $(this.parentInner).height();
           this.blockPadding = $(this.blockInner).outerHeight() - $(this.blockInner).height();
