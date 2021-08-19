@@ -1,35 +1,35 @@
-.layout-cover {
+.is-layout-cover {
   .background-selector-image {
     background-size: cover !important;
   }
 }
 
 .component {
-  &.layout-icon-enabled {
-    .component-body-inner {
-      padding-left: @component-padding;
+  &.is-layout-icon {
+    .component__body-inner {
+      padding-left: @component-body-margin;
       .dir-rtl & {
         padding-left: inherit;
-        padding-right: @component-padding;
+        padding-right: @component-body-margin;
       }
     }
 
-    .component-instruction-inner {
-      padding-left: @component-padding;
+    .component__instruction-inner {
+      padding-left: @component-body-margin;
       .dir-rtl & {
         padding-left: inherit;
-        padding-right: @component-padding;
+        padding-right: @component-body-margin;
       }
     }
 
-    .layout-icon {
+    .layout__icon {
       position: absolute;
 
       .icon {
         border-radius: 50%;
-        padding: @item-padding;
-        color: @primary-color-inverted;
-        background-color: @primary-color;
+        padding: @icon-padding;
+        color: @heading-color-inverted;
+        background-color: @heading-color;
       }
     }
   }
