@@ -21,10 +21,14 @@ define([
       this.article = $('.' + this.model.get('_id'));
       this.articleInner = $('.' + this.model.get('_id') + ' > .article__inner');
 
+      this.articlePadding = 0;
+
       this.deviceResize();
     },
 
     deviceResize: function() {
+      this.articlePadding = $(this.articleInner).outerHeight() - $(this.articleInner).height();
+
       if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
         this.resetLayout();
       } else {
@@ -43,7 +47,7 @@ define([
     setFullHeight: function() {
       var windowHeight = $(window).height() - $('.nav').height();
 
-      $(this.articleInner).css('min-height', windowHeight);
+      $(this.articleInner).css('min-height', windowHeight - this.articlePadding);
       $(this.article).addClass('is-layout-cover');
     },
 

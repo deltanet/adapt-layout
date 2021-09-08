@@ -19,6 +19,9 @@ define([
       this.customHeightEnabled = Adapt.course.get('_layoutExtension')._customHeight._isEnabled;
       this.customMinHeight = Adapt.course.get('_layoutExtension')._customHeight._minHeight;
 
+      this.article = $('.' + this.model.get('_parentId'));
+      this.articleHeader = $(this.article).find('.article__header');
+
       this.block = $('.' + this.model.get('_id'));
       this.blockInner = $('.' + this.model.get('_id') + ' > .block__inner');
 
@@ -37,6 +40,8 @@ define([
 
       // If the block config is overiding course config then do not continue
       if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._disableFullHeight) return;
+
+      this.articleHeaderHeight = $(this.articleHeader).outerHeight();
 
       if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
         this.resetLayout();
@@ -66,7 +71,7 @@ define([
     setFullHeight: function() {
       var windowHeight = $(window).height() - $('.nav').height();
 
-      $(this.blockInner).css('min-height', windowHeight);
+      $(this.blockInner).css('min-height', windowHeight - this.articleHeaderHeight);
       $(this.block).addClass('is-layout-cover');
     },
 
