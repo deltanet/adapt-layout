@@ -71,7 +71,15 @@ define([
     setFullHeight: function() {
       var windowHeight = $(window).height() - $('.nav').height();
 
-      $(this.blockInner).css('min-height', windowHeight - this.articleHeaderHeight);
+      // Only account for article header if this block is the first in the article
+      this.siblings = this.model.getSiblings(true);
+
+      if (this.siblings.models[0].get('_id') == this.model.get('_id')) {
+        $(this.blockInner).css('min-height', windowHeight - this.articleHeaderHeight);
+      } else {
+        $(this.blockInner).css('min-height', windowHeight);
+      }
+
       $(this.block).addClass('is-layout-cover');
     },
 
