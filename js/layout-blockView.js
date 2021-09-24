@@ -21,6 +21,7 @@ define([
 
       this.article = $('.' + this.model.get('_parentId'));
       this.articleHeader = $(this.article).find('.article__header');
+      this.articleHeaderHeight = 0;
 
       this.block = $('.' + this.model.get('_id'));
       this.blockInner = $('.' + this.model.get('_id') + ' > .block__inner');
@@ -41,7 +42,10 @@ define([
       // If the block config is overiding course config then do not continue
       if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._disableFullHeight) return;
 
-      this.articleHeaderHeight = $(this.articleHeader).outerHeight();
+      // Update header height if there is one
+      if ($(this.article).find('.article__header').length) {
+        this.articleHeaderHeight = $(this.articleHeader).outerHeight();
+      }
 
       if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
         this.resetLayout();
