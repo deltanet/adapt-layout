@@ -7,9 +7,10 @@ define([
     initialize: function() {
       this.listenTo(Adapt, {
         'remove': this.remove,
-        'device:changed device:resize': this.deviceResize,
-        'pageView:ready': this.render
+        'device:changed device:resize': this.deviceResize
       });
+
+      this.render();
     },
 
     render: function() {
@@ -46,6 +47,8 @@ define([
 
     setFullHeight: function() {
       var windowHeight = $(window).height() - $('.nav').height();
+
+      console.log("Layout: setFullHeight");
 
       $(this.articleInner).css('min-height', windowHeight - this.articlePadding);
       $(this.article).addClass('is-layout-cover');

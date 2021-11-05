@@ -7,9 +7,10 @@ define([
     initialize: function() {
       this.listenTo(Adapt, {
         'remove': this.remove,
-        'device:changed': this.checkState,
-        'pageView:ready': this.render
+        'device:changed': this.checkState
       });
+
+      this.render();
     },
 
     render: function() {
