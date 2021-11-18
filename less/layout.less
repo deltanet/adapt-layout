@@ -6,24 +6,16 @@
 
 .component {
   &.is-layout-icon {
-    .component__body-inner {
-      padding-left: @component-body-margin;
-      .dir-rtl & {
-        padding-left: inherit;
-        padding-right: @component-body-margin;
-      }
-    }
-
-    .component__instruction-inner {
-      padding-left: @component-body-margin;
-      .dir-rtl & {
-        padding-left: inherit;
-        padding-right: @component-body-margin;
-      }
+    .component__body {
+      display: flex;
     }
 
     .layout__icon {
-      position: absolute;
+      padding-right: @component-body-margin;
+      .dir-rtl & {
+        padding-right: inherit;
+        padding-left: @component-body-margin;
+      }
 
       .icon {
         border-radius: 50%;

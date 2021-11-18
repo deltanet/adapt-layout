@@ -1,65 +1,58 @@
-define([
-  'core/js/adapt',
-  './layout-menuView',
-  './layout-articleView',
-  './layout-blockView',
-  './layout-componentView',
-  './layout-iconView'
-], function(Adapt, LayoutMenuView, LayoutArticleView, LayoutBlockView, LayoutComponentView, LayoutIconView) {
+import Adapt from 'core/js/adapt';
+import LayoutMenuView from './layout-menuView';
+import LayoutArticleView from './layout-articleView';
+import LayoutBlockView from './layout-blockView';
+import LayoutComponentView from './layout-componentView';
+import LayoutIconView from './layout-iconView';
 
-  var Layout = _.extend({
+class Layout extends Backbone.Controller {
 
-    initialize: function() {
-      this.listenToOnce(Adapt, 'app:dataReady', this.onDataReady);
-    },
+  initialize() {
+    this.listenToOnce(Adapt, 'app:dataReady', this.onDataReady);
+  }
 
-    onDataReady: function() {
-      if (Adapt.course.get('_layoutExtension') && Adapt.course.get('_layoutExtension')._isEnabled) {
-        this.setupLayout();
-      }
-    },
+  onDataReady() {
+    if (Adapt.course.get('_layoutExtension') && Adapt.course.get('_layoutExtension')._isEnabled) {
+      this.setupLayout();
+    }
+  }
 
-    setupLayout: function() {
-      this.listenTo(Adapt, {
-        'menuView:postRender': this.onMenuReady,
-        'articleView:postRender': this.onArticleReady,
-        'blockView:postRender': this.onBlockReady,
-        'componentView:postRender': this.onComponentReady
-      });
-    },
+  setupLayout() {
+    this.listenTo(Adapt, {
+      'menuView:postRender': this.onMenuReady,
+      'articleView:postRender': this.onArticleReady,
+      'blockView:postRender': this.onBlockReady,
+      'componentView:postRender': this.onComponentReady
+    });
+  }
 
-    onMenuReady: function(view) {
-      if (Adapt.course.get('_layoutExtension')._fullHeightEnabled || Adapt.course.get('_layoutExtension')._customHeight._isEnabled) {
-        new LayoutMenuView({model:view.model});
-      }
-    },
+  onMenuReady(view) {
+    if (Adapt.course.get('_layoutExtension')._fullHeightEnabled || Adapt.course.get('_layoutExtension')._customHeight._isEnabled) {
+      new LayoutMenuView({model:view.model});
+    }
+  }
 
-    onArticleReady: function(view) {
-      if (Adapt.course.get('_layoutExtension')._fullHeightEnabled || Adapt.course.get('_layoutExtension')._customHeight._isEnabled) {
-        new LayoutArticleView({model:view.model});
-      }
-    },
+  onArticleReady(view) {
+    if (Adapt.course.get('_layoutExtension')._fullHeightEnabled || Adapt.course.get('_layoutExtension')._customHeight._isEnabled) {
+      new LayoutArticleView({model:view.model});
+    }
+  }
 
-    onBlockReady: function(view) {
-      if (Adapt.course.get('_layoutExtension')._fullHeightEnabled || Adapt.course.get('_layoutExtension')._customHeight._isEnabled) {
-        new LayoutBlockView({model:view.model});
-      }
-    },
+  onBlockReady(view) {
+    if (Adapt.course.get('_layoutExtension')._fullHeightEnabled || Adapt.course.get('_layoutExtension')._customHeight._isEnabled) {
+      new LayoutBlockView({model:view.model});
+    }
+  }
 
-    onComponentReady: function(view) {
-      if (view.model && view.model.get('_layoutExtension') && view.model.get('_layoutExtension')._isEnabled) {
-        new LayoutComponentView({model:view.model});
+  onComponentReady(view) {
+    if (view.model && view.model.get('_layoutExtension') && view.model.get('_layoutExtension')._isEnabled) {
+      new LayoutComponentView({model:view.model});
 
-        if (view.model.get('_layoutExtension')._icon && view.model.get('_layoutExtension')._icon._isEnabled) {
-          new LayoutIconView({model:view.model});
-        }
+      if (view.model.get('_layoutExtension')._icon && view.model.get('_layoutExtension')._icon._isEnabled) {
+        new LayoutIconView({model:view.model});
       }
     }
+  }
+}
 
-  }, Backbone.Events);
-
-  Layout.initialize();
-
-  return Layout;
-
-});
+export default Adapt.layout = new Layout();
