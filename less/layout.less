@@ -6,8 +6,17 @@
 
 .component {
   &.is-layout-icon {
+    .component__header {
+      background-color: @font-color-inverted;
+    }
+
     .component__body {
       display: flex;
+      background-color: transparent;
+    }
+
+    .component__instruction {
+      background-color: transparent;
     }
 
     .layout__icon {
