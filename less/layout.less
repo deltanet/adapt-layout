@@ -4,6 +4,38 @@
   }
 }
 
+.article {
+    &.is-layout-fullwidth {
+    	@media all and (max-width: (@device-width-small + 20px)) {
+    		min-height: 10px;
+    	}
+    	.article__inner {
+    		padding: 0;
+    		padding-top: 0;
+    	}
+    	.block__inner {
+    		max-width: @max-width;
+    		margin: 0px;
+    		padding: 0px;
+      }
+      .component__inner {
+    		padding: 0px;
+      }
+      .component__container,
+      .media-transcript-container,
+      .trickle-button {
+    		padding-bottom: 0px;
+      }
+    	.media-options-container {
+    		right: 0px !important;
+    		.dir-rtl & {
+    			right: inherit !important;
+    			left: 0px !important;
+    		}
+    	}
+    }
+}
+
 .component {
   &.is-layout-icon {
     .component__header {

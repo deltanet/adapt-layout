@@ -24,6 +24,10 @@ export default class LayoutBlockView extends Backbone.View {
     this.block = $('.' + this.model.get('_id'));
     this.blockInner = $('.' + this.model.get('_id') + ' > .block__inner');
 
+    if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._blockWidth._isEnabled) {
+      this.blockWidthwidth = this.model.get('_layoutExtension')._blockWidth._width;
+    }
+
     if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._componentWidths._isEnabled) {
       this.componentLeftWidth = this.model.get('_layoutExtension')._componentWidths._left;
       this.componentRightWidth = this.model.get('_layoutExtension')._componentWidths._right;
@@ -36,7 +40,9 @@ export default class LayoutBlockView extends Backbone.View {
     if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._componentWidths._isEnabled) {
       this.setWidths();
     }
-
+    if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._blockWidth._isEnabled) {
+      this.setBlockwidth();
+    }
     // If the block config is overiding course config then do not continue
     if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._disableFullHeight) return;
 
@@ -52,6 +58,12 @@ export default class LayoutBlockView extends Backbone.View {
     }
   }
 
+  setBlockwidth() {
+   if (this.blockWidthwidth) {
+        $(this.block).find('.block__inner').css('max-width', this.blockWidthwidth + '%');
+      }
+  }
+
   setWidths() {
     if (Adapt.device.screenSize == 'large') {
       $(this.block).find('.is-left').css('width', this.componentLeftWidth + '%');
@@ -61,6 +73,7 @@ export default class LayoutBlockView extends Backbone.View {
       $(this.block).find('.is-right').css('width', '100%');
     }
   }
+
 
   updateLayout() {
     if (this.fullHeightEnabled) {

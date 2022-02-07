@@ -79,7 +79,34 @@
           "type": "object"
         },
         "article": {
-          "type": "object"
+          "type": "object",
+          "properties": {
+            "_layoutExtension": {
+              "type": "object",
+              "required": false,
+              "legend": "Layout",
+              "properties": {
+                "_isEnabled": {
+                "type": "boolean",
+                "required": false,
+                "default": false,
+                "title": "Is Enabled",
+                "inputType": "Checkbox",
+                "validators": [],
+                "help": "Controls whether the Layout extension is enabled or disabled."
+              },
+              "_hasfullwidth": {
+                "type": "boolean",
+                "required": false,
+                "default": false,
+                "title": "Enable Fullwidth",
+                "inputType": "Checkbox",
+                "validators": [],
+                "help": "Enables full width on the article."
+                }
+              }
+            }
+          }
         },
         "block": {
           "type": "object",
@@ -106,6 +133,31 @@
                   "inputType": "Checkbox",
                   "validators": [],
                   "help": "Controls whether the fullheight setting in Projects settings is disabled."
+                },
+                "_blockWidth": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Block Width",
+                  "properties": {
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": false,
+                      "title": "Is Enabled",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Controls whether the Block Width functionality is enabled or disabled."
+                    },
+                    "_width": {
+                      "type": "number",
+                      "required": false,
+                      "default": "70",
+                      "title": "Custom width",
+                      "inputType": "Number",
+                      "validators": ["number"],
+                      "help": "Sets a custom width of the block."
+                    }
+                  }
                 },
                 "_componentWidths": {
                   "type": "object",
