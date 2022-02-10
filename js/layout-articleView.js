@@ -22,6 +22,10 @@ export default class LayoutArticleView extends Backbone.View {
 
     this.articlePadding = 0;
 
+    if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._hasFullWidth) {
+      $(this.article).addClass('is-layout-fullwidth');
+    }
+
     this.deviceResize();
   }
 

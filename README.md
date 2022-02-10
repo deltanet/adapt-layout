@@ -12,7 +12,7 @@ If **Layout** has been uninstalled from the Adapt authoring tool, it may be rein
 
 ## Settings Overview
 
-**Layout** is configured at course (*course.json*),  block (*blocks.json*) and component (*components.json*) level.
+**Layout** is configured at course (*course.json*), article (*articles.json*), block (*blocks.json*) and component (*components.json*) level.
 
 The attributes listed below are properly formatted as JSON in [*example.json*](https://github.com/deltanet/adapt-layout/blob/master/example.json).  
 
@@ -34,13 +34,27 @@ The Layout attribute group contains values for **_isEnabled**, **_disableOnMobil
 
 >>**_minHeight** (number): Defines the CSS min-height.  
 
+**Article**  
+
+The Layout attribute group at article level contains values for **_isEnabled**, and **_hasFullWidth**.
+
+>**_isEnabled** (boolean):  Turns on and off the **Layout** extension.
+
+>**_hasFullWidth** (boolean):  If enabled the fullwidth functionality will be applied to the article.  
+
 **Block**  
 
-The Layout attribute group at block level contains values for **_isEnabled**, **_disableFullHeight**, and **_componentWidths**.
+The Layout attribute group at block level contains values for **_isEnabled**, **_disableFullHeight**, **_blockWidth**, and **_componentWidths**.
 
 >**_isEnabled** (boolean):  Turns on and off the **Layout** extension. Can be set to disable **Layout** when not required.  
 
 >**_disableFullHeight** (boolean):  If enabled the fullheight functionality will not be applied to the block.  
+
+>**_blockWidth** (object):  This `_blockWidth` attributes group stores the properties for changing the width of the block. It contains values for **_isEnabled**, and **_width**.
+
+>>**_isEnabled** (boolean):  Turns on and off the **_blockWidth** functionality.
+
+>>**_width** (number): Sets the max-width of the block as a percentage.
 
 >**_componentWidths** (object):  This `_componentWidths` attributes group stores the properties for changing the width of the components within the block. It contains values for **_isEnabled**, **_left** and **_right**.
 

@@ -10,17 +10,28 @@
   }
 }
 
+// Add to articles JSON
+
+"_layoutExtension": {
+  "_isEnabled": true,
+  "_hasFullWidth": true
+}
+
 // Add to blocks JSON
 
 "_layoutExtension": {
-  "_isEnabled": false,
+  "_isEnabled": true,
   "_disableFullHeight": false,
+  "_blockWidth": {
+    "_isEnabled": false,
+    "_width": "" //percentage//
+  },
   "_componentWidths": {
     "_isEnabled": false,
-    "_left": 30,
-    "_right": 70
+    "_left": 50,
+    "_right": 50
   }
-},
+}
 
 // Add to components JSON
 
@@ -32,4 +43,4 @@
     "_class": "icon-question",
     "_image": ""
   }
-},
+}
