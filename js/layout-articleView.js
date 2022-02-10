@@ -22,8 +22,8 @@ export default class LayoutArticleView extends Backbone.View {
 
     this.articlePadding = 0;
 
-    if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._hasfullwidth) {
-      this.hasfullwidth = this.model.get('_layoutExtension')._hasfullwidth;
+    if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._hasFullWidth) {
+      $(this.article).addClass('is-layout-fullwidth');
     }
 
     this.deviceResize();
@@ -31,10 +31,6 @@ export default class LayoutArticleView extends Backbone.View {
 
   deviceResize() {
     this.articlePadding = $(this.articleInner).outerHeight() - $(this.articleInner).height();
-
-    if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._hasfullwidth) {
-      this.setFullWidth();
-    }
 
     if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
       this.resetLayout();
@@ -56,12 +52,6 @@ export default class LayoutArticleView extends Backbone.View {
 
     $(this.articleInner).css('min-height', windowHeight - this.articlePadding);
     $(this.article).addClass('is-layout-cover');
-  }
-
-  setFullWidth() {
-    if (this.hasfullwidth) {
-      $(this.article).addClass('is-layout-fullwidth');
-    }
   }
 
   setCustomHeight() {

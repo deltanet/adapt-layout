@@ -14,7 +14,7 @@
 
 "_layoutExtension": {
   "_isEnabled": true,
-  "_hasfullwidth": true
+  "_hasFullWidth": true
 }
 
 // Add to blocks JSON
@@ -24,7 +24,7 @@
   "_disableFullHeight": false,
   "_blockWidth": {
     "_isEnabled": false,
-    "_width":"" //percentage//
+    "_width": "" //percentage//
   },
   "_componentWidths": {
     "_isEnabled": false,

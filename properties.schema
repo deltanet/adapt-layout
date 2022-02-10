@@ -87,22 +87,22 @@
               "legend": "Layout",
               "properties": {
                 "_isEnabled": {
-                "type": "boolean",
-                "required": false,
-                "default": false,
-                "title": "Is Enabled",
-                "inputType": "Checkbox",
-                "validators": [],
-                "help": "Controls whether the Layout extension is enabled or disabled."
-              },
-              "_hasfullwidth": {
-                "type": "boolean",
-                "required": false,
-                "default": false,
-                "title": "Enable Fullwidth",
-                "inputType": "Checkbox",
-                "validators": [],
-                "help": "Enables full width on the article."
+                  "type": "boolean",
+                  "required": false,
+                  "default": false,
+                  "title": "Is Enabled",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "Controls whether the Layout extension is enabled or disabled."
+                },
+                "_hasFullWidth": {
+                  "type": "boolean",
+                  "required": false,
+                  "default": false,
+                  "title": "Enable Fullwidth",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "Enables full width on the article."
                 }
               }
             }
@@ -151,11 +151,11 @@
                     "_width": {
                       "type": "number",
                       "required": false,
-                      "default": "70",
+                      "default": 70,
                       "title": "Custom width",
                       "inputType": "Number",
                       "validators": ["number"],
-                      "help": "Sets a custom width of the block."
+                      "help": "Sets the maximum width of the block as a percentage."
                     }
                   }
                 },
@@ -176,7 +176,7 @@
                     "_left": {
                       "type": "number",
                       "required": false,
-                      "default": "50",
+                      "default": 50,
                       "title": "Left",
                       "inputType": "Number",
                       "validators": ["number"],
@@ -185,7 +185,7 @@
                     "_right": {
                       "type": "number",
                       "required": false,
-                      "default": "50",
+                      "default": 50,
                       "title": "Right",
                       "inputType": "Number",
                       "validators": ["number"],
