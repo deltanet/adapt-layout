@@ -24,7 +24,7 @@ export default class LayoutBlockView extends Backbone.View {
     this.block = $('.' + this.model.get('_id'));
     this.blockInner = $('.' + this.model.get('_id') + ' > .block__inner');
 
-    if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._blockWidth._isEnabled) {
+    if (this.model.get('_layoutExtension') && this.model.get('_layoutExtension')._isEnabled && this.model.get('_layoutExtension')._blockWidth && this.model.get('_layoutExtension')._blockWidth._isEnabled) {
       this.blockWidth = this.model.get('_layoutExtension')._blockWidth._width;
       $(this.blockInner).css('max-width', this.blockWidth + '%');
     }
