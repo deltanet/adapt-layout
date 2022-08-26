@@ -1,4 +1,5 @@
 import Adapt from 'core/js/adapt';
+import device from 'core/js/device';
 
 export default class LayoutComponentView extends Backbone.View {
 
@@ -27,7 +28,7 @@ export default class LayoutComponentView extends Backbone.View {
     if (!this.hideOn) return;
 
     for (let i = 0; i < this.hideOnSizes.length; i++) {
-      if (Adapt.device.screenSize == this.hideOnSizes[i]) {
+      if (device.screenSize == this.hideOnSizes[i]) {
       	this.model.set('_isAvailable', false);
       	$('.' + this.id).addClass('display-none');
       } else {

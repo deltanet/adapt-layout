@@ -1,4 +1,5 @@
 import Adapt from 'core/js/adapt';
+import device from 'core/js/device';
 
 export default class LayoutBlockView extends Backbone.View {
 
@@ -58,7 +59,7 @@ export default class LayoutBlockView extends Backbone.View {
   }
 
   setWidths() {
-    if (Adapt.device.screenSize == 'large') {
+    if (device.screenSize == 'large') {
       $(this.block).find('.is-left').css('width', this.componentLeftWidth + '%');
       $(this.block).find('.is-right').css('width', this.componentRightWidth + '%');
     } else {

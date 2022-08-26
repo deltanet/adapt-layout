@@ -1,4 +1,5 @@
 import Adapt from 'core/js/adapt';
+import device from 'core/js/device';
 
 export default class LayoutMenuView extends Backbone.View {
 
@@ -23,7 +24,7 @@ export default class LayoutMenuView extends Backbone.View {
   }
 
   deviceResize() {
-    if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
+    if (device.screenSize === 'small' && this.disableOnMobile) {
       this.resetLayout();
     } else {
       this.updateLayout();

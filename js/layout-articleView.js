@@ -1,4 +1,5 @@
 import Adapt from 'core/js/adapt';
+import device from 'core/js/device';
 
 export default class LayoutArticleView extends Backbone.View {
 
@@ -32,7 +33,7 @@ export default class LayoutArticleView extends Backbone.View {
   deviceResize() {
     this.articlePadding = $(this.articleInner).outerHeight() - $(this.articleInner).height();
 
-    if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
+    if (device.screenSize === 'small' && this.disableOnMobile) {
       this.resetLayout();
     } else {
       this.updateLayout();
