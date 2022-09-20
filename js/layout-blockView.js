@@ -51,7 +51,7 @@ export default class LayoutBlockView extends Backbone.View {
       this.articleHeaderHeight = $(this.articleHeader).outerHeight();
     }
 
-    if (Adapt.device.screenSize === 'small' && this.disableOnMobile) {
+    if (device.screenSize === 'small' && this.disableOnMobile) {
       this.resetLayout();
     } else {
       this.updateLayout();

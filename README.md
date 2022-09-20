@@ -84,8 +84,8 @@ The Layout attribute group at component level contains values for **_isEnabled**
 No known limitations.
 
 ----------------------------
-**Version number:**  3.1.2
-**Framework versions supported:**  5.8+
+**Version number:**  4.0.0
+**Framework versions supported:**  5.19.1+
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-layout/graphs/contributors)
 **Accessibility support:** Yes
 **RTL support:** Yes
