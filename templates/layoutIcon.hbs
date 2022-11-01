@@ -1,7 +1,7 @@
 {{#if _layoutExtension._icon._class}}
-<div class="icon {{_layoutExtension._icon._class}}"></div>
+<div class="icon {{_layoutExtension._icon._class}}" {{#if _layoutExtension._icon.alt}}aria-label="{{_layoutExtension._icon.alt}}"{{else}}aria-hidden="true"{{/if}}></div>
 {{else}}
 {{#if _layoutExtension._icon._image}}
-<img src="{{_layoutExtension._icon._image}}"/>
+<img src="{{_layoutExtension._icon._image}}" {{#if _layoutExtension._icon.alt}}aria-label="{{_layoutExtension._icon.alt}}"{{else}}aria-hidden="true"{{/if}} />
 {{/if}}
 {{/if}}

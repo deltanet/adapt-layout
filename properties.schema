@@ -254,6 +254,16 @@
                       "inputType": "Asset:image",
                       "validators": [],
                       "help": "Select a graphic for the icon."
+                    },
+                    "alt": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Alternative Text",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "This text becomes the image or icon alt attribute.",
+                      "translatable": true
                     }
                   }
                 }

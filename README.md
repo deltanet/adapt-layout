@@ -78,13 +78,14 @@ The Layout attribute group at component level contains values for **_isEnabled**
 
 >>**_image** (string): File name (including path) of the image for the icon. Path should be relative to the *src* folder.  
 
+>>**alt** (string): This text becomes the image or icon `alt` attribute.
 
 ## Limitations
 
 No known limitations.
 
 ----------------------------
-**Version number:**  3.1.1    
+**Version number:**  3.2.0    
 **Framework versions supported:**  5.8+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-layout/graphs/contributors)     
 **Accessibility support:** Yes    

@@ -41,6 +41,7 @@
   "_icon": {
     "_isEnabled": false,
     "_class": "icon-question",
-    "_image": ""
+    "_image": "",
+    "alt": ""
   }
 }
